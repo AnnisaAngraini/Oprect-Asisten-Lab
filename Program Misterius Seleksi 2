@@ -1,0 +1,83 @@
+import random
+
+# Inisiasi kartu 
+def Set_kartu():
+    indeks = ['W','X','Y','Z','W','X','Y','Z']
+    random.shuffle(indeks)
+    baris1 = indeks[0:4]
+    baris2 = indeks[4:8]
+    return [baris1, baris2]
+
+# Tampilan awal kartu
+def tampilan_tertutup():
+    grid = []
+    for i in range(2):            
+        baris = []
+        for j in range(4):       
+            baris.append('?')
+        grid.append(baris)
+    return grid
+
+# Menampilkan grid ke layar
+def tampilkan_grid(kartu):
+    for baris in kartu:
+        print(" ".join(baris))
+    print()      
+
+# Cek apakah semua kartu sudah terbuka
+def open(tampilan, kartu): 
+    for i in range(2):
+        for j in range(4):
+            if tampilan[i][j] != kartu[i][j]:
+                return False
+    return True
+
+# Program Utama
+def program_utama():
+    kartu = Set_kartu()
+    tampilan = tampilan_tertutup()
+    langkah = 0
+
+    while not open(tampilan, kartu):
+        print("Game Memori - Pasangan Misterius")
+        tampilkan_grid(tampilan)
+
+        try:
+            # input kolom dan baris kartu
+            print("Pilih dua kartu (format: baris kolom)")
+            r1 = int(input("Baris kartu pertama (0 atau 1): "))
+            c1 = int(input("Kolom kartu pertama (0 - 3): "))
+            r2 = int(input("Baris kartu kedua (0 atau 1): "))
+            c2 = int(input("Kolom kartu kedua (0 - 3): "))
+
+            # Cek inputan kolom dan baris
+            if (r1 == r2 and c1 == c2) or not (0 <= r1 < 2 and 0 <= c1 < 4 and 0 <= r2 < 2 and 0 <= c2 < 4):
+                print("Input tidak valid!\n")
+                continue
+
+            if tampilan[r1][c1] != "?" or tampilan[r2][c2] != "?":
+                print("Kartu sudah terbuka!\n")
+                continue
+
+            # Tampilkan kartu yang dipilih
+            tampilan[r1][c1] = kartu[r1][c1]
+            tampilan[r2][c2] = kartu[r2][c2]
+            tampilkan_grid(tampilan)
+
+            langkah += 1
+
+            # Cek apakah pasangan kartu cocok
+            if kartu[r1][c1] == kartu[r2][c2]:
+                print("Pasangan cocok!")
+            else:
+                print("Bukan pasangan. Kartu akan ditutup kembali.\n")
+                tampilan[r1][c1] = "?"
+                tampilan[r2][c2] = "?"
+        except:
+            print("Inputan berupa angka")
+            time.sleep(2)
+            
+    print("Selamat! Anda menyelesaikan permainan dalam ",langkah,"langkah.")
+
+# Jalankan program
+program_utama()
