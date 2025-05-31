@@ -1,0 +1,94 @@
+# # no 1
+# # Matriks Identitas 3X3
+# A =[]
+# entri = 0
+# for i in range (0,3):
+#     baris = []
+#     for j in range (0,3):
+#         if i==j :
+#             entri = 1
+#         if i !=j :
+#             entri = 0
+#         baris.append(entri)
+#     A.append(baris)
+# for i in range (0,3):
+#     for j in range (0,3):
+#         print (A[i][j]," ",end=" ")
+#     print()
+
+# # no 2
+# #Transpos Matriks
+# A = [[1,2],
+#      [3, 4],
+#      [5 ,6]]
+# print(A)
+# AT = []
+# for i in range(len(A[0])):
+#     baris =[]
+#     for j in range(len(A)):
+#         hasil = A[j][i]
+#         baris.append(hasil)
+#     AT.append(baris)
+# print('Transpos dari A :')
+# for i in AT :
+#     print(i)
+      
+# # no 3
+# #Penjumlahan matrik
+# A = [[1,2],[3,4]]
+# B = [[3,4],[5,6]]
+# C =[] 
+# for i in range(0,2):
+#     baris =[] 
+#     for j in range (0,2):
+#         Hasil = A[i][j]+B[i][j]
+#         baris.append(Hasil)
+#     C.append(baris)
+
+# for i in range (0,2):
+#     for j in range (0,2):
+#         print(C[i][j]," ",end=" ")
+#     print()
+
+# # no 4
+# # Data Nilai ujian
+# Data =[
+#     ['Andi','Budi','Ciko','Dani','Edo'],
+#     [80, 88, 95,66,46]
+# ]
+# #Hitung Rata-Rata
+# s =0
+# for i in  (Data[1]):
+#     s = s +i
+# rata2 = s/len(Data[1])
+# # rata2 = sum(Data[1])/len(Data[1])
+# print(f'Rata-rata Mahasiswa : {rata2}')
+# print('Mahasiswa dengan nilai atas rata-rata')
+# for i in range(3):
+#     if Data[1][i]>=rata2:
+#         print(f'{Data[0][i]} dengan nilai {Data[1][i]}')
+
+# # no 5
+# A = [[5,8,6],
+#      [7,3,9],
+#      [2,4,1]]
+# # Jumlah elemen A
+# jumlah = 0
+# for i in A:
+#     for j in i: 
+#         jumlah = jumlah+j
+# print('Jumlah elemen A:',jumlah)
+
+# # jumlah elemen pada kolom ke-2
+# total = 0
+# for i in range(len(A)):
+#     total = total + A[i][1]
+# print('Jumlah elemen pada kolom ke-2:',total)        
+
+# # Banyak elemen ganjil pada array
+# jumlah_ganjil = 0
+# for i in A :
+#     for j in i :
+#         if j %2 ==0:
+#             jumlah_ganjil+=1
+# print(f'Banyak elemen ganjil pada A:{jumlah_ganjil}')
